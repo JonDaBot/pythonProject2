@@ -258,19 +258,19 @@ def update_score(nscore):
         score = lines[0].strip()
 
     with open('scores.txt', 'w') as f:
-        if score > nscore:
-          f.write(str(score))
-        else:
-          f.write(str(nscore))
+      if score > nscore:
+        f.write(str(score))
+      else:
+        f.write(str(nscore))
 
- def max_score():
-    with open('scores.txt', 'r') as f:
-       lines = f.readlines()
-       score = lines[0].strip()
-    return score
+def max_score():
+     with open('scores.txt', 'r') as f:
+        lines = f.readlines()
+        score = lines[0].strip()
+     return score
 
 
-  def draw_window(surface, grid, score=0, last_score = 0):
+def draw_window(surface, grid, score=0, last_score = 0):
    surface.fill((0, 0, 0))
 
    pygame.font.init()
