@@ -154,7 +154,7 @@ class Piece(object):
 #    surface.blit(label)
 #    surface.blit(label),(top_left_x + play_width /2 -(label.get_width()/2), top_left_y + play_height/2 - label.get_height()/2)
 #blit(font = pygame.font.SysFont('comicsans', 30),label =  (255, 255, 255), surface=0, grid=0)
-
+#
 def create_grid(locked_positions={}):
     grid = [[(0,0,0) for _ in range(10)] for _ in range(20)]
 
