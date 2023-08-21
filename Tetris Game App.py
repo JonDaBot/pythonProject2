@@ -148,6 +148,13 @@ class Piece(object):
         self.rotation = 0
 
 
+#def blit(font, label, surface, grid):
+#   font = pygame.font.SysFont('comicsans', 30)
+#    label = font.render('Next Shape', 1, (255, 255, 255))
+#    surface.blit(label)
+#    surface.blit(label),(top_left_x + play_width /2 -(label.get_width()/2), top_left_y + play_height/2 - label.get_height()/2)
+#blit(font = pygame.font.SysFont('comicsans', 30),label =  (255, 255, 255), surface=0, grid=0)
+
 def create_grid(locked_positions={}):
     grid = [[(0,0,0) for _ in range(10)] for _ in range(20)]
 
@@ -155,7 +162,7 @@ def create_grid(locked_positions={}):
         for j in range(len(grid[i])):
             if (j, i) in locked_positions:
                 c = locked_positions[(j,i)]
-                grid[i][j] = c
+                grid[i][j]
     return grid
 
 def convert_shape_format(shape):
@@ -196,12 +203,12 @@ def get_shape():
     return Piece(5, 0, random.choice(shapes))
 
 
-def draw_text_middle(text, size, color, surface):
-    font = pygame.font.SysFont("comicsans", size, bold=True)
-    label = font.render(text, 1, color)
-
+def draw_text_middle(text, size, color, surface, grid, blit):
+    font = pygame.font.SysFont("comicsans", 25, bold=True)
+    label = font.render("comicsans", 1, color)
     surface.blit(label),(top_left_x + play_width /2 -(label.get_width()/2), top_left_y + play_height/2 - label.get_height()/2)
-
+    grid(0)
+    blit(surface.blit(label))
 
 def draw_grid(surface, grid):
     sx = top_left_x
@@ -390,7 +397,7 @@ def main_menu(win):   # *
     run = True
     while run:
         win.fill((0,0,0))
-        draw_text_middle(win, 'Press Any key To Play', 60, (255,255,255))
+        draw_text_middle(win,'Press Any key To Play', 60, (255,255,255), grid=0 ,blit=0)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
